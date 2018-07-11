@@ -1,0 +1,31 @@
+{
+  "name": "kotlin-workshop",
+  "version": "1.0.0",
+  "scripts": {
+    "serve": "webpack-dev-server --mode development",
+    "build": "webpack --mode production"
+  },
+  "author": "Ruben Gees",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "highlight.js": "^9.12.0",
+    "reveal.js": "^3.6.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^1.0.0",
+    "file-loader": "^1.1.11",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "image-webpack-loader": "^4.3.1",
+    "mini-css-extract-plugin": "^0.4.1",
+    "optimize-css-assets-webpack-plugin": "^4.0.3",
+    "uglifyjs-webpack-plugin": "^1.2.7",
+    "webpack": "^4.15.1",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4"
+  }
+}

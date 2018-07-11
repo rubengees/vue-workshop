@@ -1,0 +1,20 @@
+.column-container {
+    display: flex;
+}
+
+.column {
+    flex: 1;
+    width: 0;
+}
+
+.hljs {
+    overflow: hidden !important;
+    line-height: 1.2em !important;
+    font-size: medium !important;
+}
+
+.borderless {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important
+}
