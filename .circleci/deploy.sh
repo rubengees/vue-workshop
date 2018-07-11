@@ -7,7 +7,7 @@ git config --global user.name "$GH_NAME" > /dev/null 2>&1
 git config --global push.default simple
 
 # Copy dist directory to tmp location.
-cp -r dist /tmp/dist
+cp -r presentation/dist /tmp/dist
 
 # Switch back to root dir.
 cd ..
