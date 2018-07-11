@@ -9,9 +9,6 @@ git config --global push.default simple
 # Copy dist directory to tmp location.
 cp -r presentation/dist /tmp/dist
 
-# Switch back to root dir.
-cd ..
-
 # Checkout target branch.
 git checkout -b gh-pages
 
