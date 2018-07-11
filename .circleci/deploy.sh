@@ -13,7 +13,7 @@ cp -r presentation/dist /tmp/dist
 cd ..
 
 # Checkout target branch.
-git checkout gh-pages
+git checkout -b gh-pages
 
 # Delete all files except the .git folder.
 find -mindepth 1 -maxdepth 1 -not -name .git -exec rm -rf {} \;
