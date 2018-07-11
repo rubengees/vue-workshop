@@ -10,7 +10,7 @@ git config --global push.default simple
 cp -r presentation/dist /tmp/dist
 
 # Checkout target branch.
-git checkout -b gh-pages
+git checkout gh-pages
 
 # Delete all files except the .git folder.
 find -mindepth 1 -maxdepth 1 -not -name .git -exec rm -rf {} \;
