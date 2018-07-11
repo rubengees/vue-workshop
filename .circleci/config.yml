@@ -10,21 +10,18 @@ jobs:
           fingerprints:
             - "23:47:ee:5c:20:b8:ab:87:a5:fd:49:1f:36:3d:ce:6b"
       - checkout
-      - run:
-          name: "Switching to presentation directory"
-          command: cd presentation
       - restore_cache:
-          key: v1-dependencies-{{ checksum "package.json" }}
+          key: v1-dependencies-{{ checksum "presentation/package.json" }}
       - run:
           name: "Installing dependencies"
-          command: yarn install
+          command: cd presentation && yarn install
       - save_cache:
-          key: v1-dependencies-{{ checksum "package.json" }}
+          key: v1-dependencies-{{ checksum "presentation/package.json" }}
           paths:
-            - node_modules
+            - presentation/node_modules
       - run:
           name: "Building project"
-          command: yarn build
+          command: cd presentation && yarn build
       - run:
           name: "Deploying distribution"
           command: ./.circleci/deploy.sh
