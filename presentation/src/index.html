@@ -13,7 +13,193 @@
       <br>
       <small>Ruben Gees (Smartsquare GmbH)</small>
     </section>
+    <section>
+      <h1>Übersicht</h1>
+
+      <ul>
+        <li>Clientseitiges Javascript Framework zur Erstellung von Single-Page-Webanwendungen</li>
+        <li>Entwickler: <a href="https://github.com/open-source/stories/yyx990803">Evan You</a>
+          und Community auf <a href="https://github.com/vuejs/vue">Github</a></li>
+      </ul>
+      <img src="assets/evan-you.jpeg" class="borderless" style="width: 25%">
+    </section>
+    <section>
+      <h1>Warum SPA?</h1>
+
+      <ul>
+        <li>Single-Page-Anwendungen sind schnell und erfordern kein erneutes Laden der Seite.</li>
+        <li>Schneller Entwicklungs-Start: Es wird kein Server benötigt, da alle Seiten statisch sind.</li>
+        <li>Bessere Trennung zwischen Frontend und Backend.
+          <ul>
+            <li>Frontend und Backend können separat voneinander deployed werden.</li>
+            <li>Schnittstelle vom Backend auch für andere Anwendungen nutzbar (bspw. Smartphone Apps).</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h1>Warum Vue?</h1>
+
+      <ul>
+        <li>Progressiv: Vue kann nach und nach adaptiert werden.</li>
+        <li>Einfach zu erlernen: Nur Vorwissen in JS und HTML nötig.</li>
+        <li>Mächtig: Das MVVM-Muster mit reaktivem Databinding erlaubt einfache Programmierung komplexer Abläufe.</li>
+        <li>Gibt keine Struktur der Anwendung vor.</li>
+      </ul>
+    </section>
+    <section>
+      <h1>Setup</h1>
+
+      <pre><code class="html">&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
+
+&lt;script src=&quot;https://unpkg.com/vue&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+var app = new Vue({
+  el: '#app'
+})
+&lt;/script&gt;
+</code></pre>
+
+      <h5>Oder</h5>
+
+      <pre><code class="bash">vue create my-project</code></pre>
+      <small style="font-size: 0.4em">(Später mehr)</small>
+    </section>
+    <section>
+      <h1 style="margin-bottom: -0.8em">Databinding
+        <br><span style="font-size: 0.2em; vertical-align: top">(One-Way)</span></h1>
+
+      <pre><code class="html">&lt;div id=&quot;app&quot;&gt;
+  <mark>{{ message }}</mark>
+&lt;/div&gt;</code></pre>
+
+      <pre><code class="js">var app = new Vue({
+  el: '#app',
+  data: {
+    <mark>message: 'Hello Vue!'</mark>
+  }
+}</code></pre>
+
+      Ändert sich die <i>message</i> im Datenmodell von Vue, ändert sie sich auch im DOM.
+    </section>
+    <section>
+      <h1 style="margin-bottom: -0.8em">Databinding
+        <br><span style="font-size: 0.2em; vertical-align: top">(Two-Way)</span></h1>
+
+      <pre><code class="html">&lt;div id=&quot;app&quot;&gt;
+  &lt;p&gt;<mark>{{ message }}</mark>&lt;/p&gt;
+  &lt;input <mark>v-model=&quot;message&quot;</mark>&gt;
+&lt;/div&gt;</code></pre>
+
+      <pre><code class="js">var app = new Vue({
+  el: '#app',
+  data: {
+    <mark>message: 'Hello Vue!'</mark>
+  }
+})</code></pre>
+
+      Ändert sich die <i>message</i> im Input, ändert sie sich im Datenmodell (und <u>umgekehrt</u>).
+    </section>
+    <section>
+      <h1>Beispiel</h1>
+
+      <div id="app-1" style="background: lightgrey">
+        <span>{{ message }}</span><br>
+        <input v-model="message">
+      </div>
+    </section>
+    <section>
+      <h1>Conditionals</h1>
+
+      <pre><code class="html">&lt;div id=&quot;app-3&quot;&gt;
+  &lt;span <mark>v-if=&quot;framework === 'vue'&quot;</mark>&gt;Cool!&lt;/span&gt;
+  &lt;span <mark>v-else</mark>&gt;Lame :/&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+
+      <pre><code class="js">var app = new Vue({
+  el: '#app',
+  data: {
+    <mark>framework: 'vue'</mark>
+  }
+})</code></pre>
+
+      Das erste <i>span</i> wird nur zum DOM hinzugefügt, wenn die Bedingung erfüllt ist.
+      Falls nicht, wird das andere Span hinzugefügt.
+    </section>
+    <section>
+      <h1>Loops</h1>
+
+      <pre><code class="html">&lt;div id=&quot;app&quot;&gt;
+  &lt;ol&gt;
+    &lt;li <mark>v-for=&quot;todo in todos&quot;</mark>&gt;
+      <mark>{{ todo.text }}</mark>
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</code></pre>
+
+      <pre><code class="js">var app = new Vue({
+  el: '#app',
+  data: {
+    <mark>todos: [
+      { text: 'Write Code' },
+      { text: 'Test Code' },
+      { text: 'Deploy Code' }
+    ]</mark>
+  }
+})</code></pre>
+
+      Für jedes Element in der Liste wird ein Element zum DOM hinzugefügt.
+    </section>
+    <section>
+      <h1>Components</h1>
+
+      <pre><code class="html">&lt;ol&gt;
+   <mark>&lt;todo-item</mark>
+     v-for=&quot;(todo, i) in todos&quot;
+     <mark>:todo=&quot;todo&quot;</mark>
+     :key=&quot;i&quot;&gt;
+   <mark>&lt;/todo-item&gt;</mark>
+ &lt;/ol&gt;</code></pre>
+
+      <pre><code class="js">Vue.component('todo-item', {
+  props: ['todo'],
+  template: '&lt;li&gt;{{ todo.text }}&lt;/li&gt;'
+})
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    todos: [
+      { text: 'Write Code' },
+      { text: 'Test Code' },
+      { text: 'Deploy Code' }
+    ]
+  }
+})</code></pre>
+
+    </section>
+    <section>
+      <h1>Components</h1>
+      Angelegte Components können direkt als HTML tags verwendet werden.<br><br>
+      Mittels <i>props</i> können Daten übergeben werden (auch reaktiv!)
+    </section>
+    <section>
+      <h1>Beispiel</h1>
+
+      <div id="app-2" style="background: lightgrey">
+        <ol>
+          <todo-item
+              v-for="(todo, i) in todos"
+              :todo="todo"
+              :key="i"
+          >
+          </todo-item>
+        </ol>
+      </div>
+    </section>
   </div>
 </div>
 </body>
+<script>
+</script>
 </html>

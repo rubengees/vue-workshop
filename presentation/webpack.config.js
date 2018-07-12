@@ -1,5 +1,3 @@
-const webpack = require("webpack");
-
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -72,9 +70,6 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "[name].css",
       chunkFilename: "[id].css"
-    }),
-    new webpack.ProvidePlugin({
-      Reveal: "reveal.js"
     })
   ]
 };

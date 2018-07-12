@@ -1,3 +1,7 @@
+mark {
+    background-color: yellow;
+}
+
 .column-container {
     display: flex;
 }
