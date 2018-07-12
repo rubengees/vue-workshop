@@ -8,16 +8,16 @@ The frontend and backend folders contain a simple note list project to implement
 
 ### Prerequisites
 
-- Java 1.8 JDK or higher
-- Node.js 8 or higher
-- Yarn (Not required but recommended)
-- JavaScript IDE, e.g. VS Code
+- [Java 1.8 JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) or higher
+- [Node.js 8](https://nodejs.org/en/) or higher
+- [Yarn](https://yarnpkg.com/lang/en/) (Not required but recommended)
+- JavaScript IDE, e.g. [Visual Studio Code](https://code.visualstudio.com/)
 
 ### Backend
 
-The _backend_ directory contains a ready to use REST-api implementation for working with notes.
+The _backend_ directory contains a ready to use REST-API implementation for working with notes.
 
-The following apis are availables:
+The following APIs are availables:
 
 | Method | endpoint        | description                              |
 | ------ | --------------- | ---------------------------------------- |
