@@ -48,6 +48,27 @@
       </ul>
     </section>
     <section>
+      <h1>Vue vs. React</h1>
+
+      <ul>
+        <li>Identische Performanz, beide verwenden Virtual DOM.</li>
+        <li>Manuelle Optimierung entfällt in Vue, da Änderungen automatisch erkannt werden.</li>
+        <li>Templates vs JSX.</li>
+        <li>Höhere Lernkurve bei React.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Vue vs Angular (2+)</h2>
+
+      <ul>
+        <li>Identische Performanz.</li>
+        <li>JavaScript vs TypeScript.</li>
+        <li>Angular selbst nach allen Optimierungen noch mehr als doppelt so groß.</li>
+        <li>Angular weniger Flexibel, gibt dafür aber mehr vor.</li>
+        <li>Höhere Lernkurve bei Angular.</li>
+      </ul>
+    </section>
+    <section>
       <h1>Setup</h1>
 
       <pre><code class="html">&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
@@ -62,7 +83,7 @@ var app = new Vue({
 
       <h5>Oder</h5>
 
-      <pre><code class="bash">vue create my-project</code></pre>
+      <pre><code class="bash">$ vue create my-project</code></pre>
       <small style="font-size: 0.4em">(Später mehr)</small>
     </section>
     <section>
@@ -196,6 +217,230 @@ var app = new Vue({
           </todo-item>
         </ol>
       </div>
+    </section>
+    <section>
+      <h1>Die Vue Instanz</h1>
+
+      <pre><code>var app = new Vue({
+  el: '#app',
+  data: {
+    someData: 1
+  },
+  <mark>computed: {
+    doubleData: function () {
+      return someData * 2;
+    }
+  }</mark>
+  watch: {
+    question: function (newSomething, oldSomething) {}
+  },
+  created: function () {},
+  methods: {
+    someMethod() {}
+  }
+})</code></pre>
+
+      Zur Umwandlung von Daten. Die Ergebnisse werden gecached und ändern sich, wenn sich einer der Abhängigkeiten
+      ändert.
+    </section>
+    <section>
+      <h1>Die Vue Instanz</h1>
+
+      <pre><code>var app = new Vue({
+  el: '#app',
+  data: {
+    someData: 1
+  },
+  computed: {
+    doubleData: function () {
+      return someData * 2;
+    }
+  },
+  <mark>watch: {
+    someData: function (newData, oldData) {}
+  }</mark>,
+  created: function () {},
+  methods: {
+    someMethod() {}
+  }
+})</code></pre>
+
+      Zum Beobachten und manuellen Bearbeiten von Daten. Der Name entspricht dem Namen der Daten.
+    </section>
+    <section>
+      <h1>Die Vue Instanz</h1>
+
+      <pre><code>var app = new Vue({
+  el: '#app',
+  data: {
+    someData: 1
+  },
+  computed: {
+    doubleData: function () {
+      return someData * 2;
+    }
+  },
+  watch: {
+    someData: function (newData, oldData) {}
+  },
+  <mark>created: function () {}</mark>,
+  methods: {
+    someMethod() {}
+  }
+})</code></pre>
+
+      Lebenszyklus-Callback, welcher an bestimmter Stelle aufgerufen wird
+      (alle Callbacks <a href="https://vuejs.org/v2/guide/instance.html#Lifecycle-Diagram">hier</a>).
+    </section>
+    <section>
+      <h1>Die Vue Instanz</h1>
+
+      <pre><code>var app = new Vue({
+  el: '#app',
+  data: {
+    someData: 1
+  },
+  computed: {
+    doubleData: function () {
+      return someData * 2;
+    }
+  },
+  watch: {
+    someData: function (newData, oldData) {}
+  },
+  created: function () {},
+  <mark>methods: {
+    someMethod() {}
+  }</mark>
+})</code></pre>
+
+      Frei definierbare Methoden die auch aus dem Template heraus aufgerufen werden können.
+    </section>
+    <section>
+      <h2>Single file components</h2>
+
+      <ul>
+        <li>Template, Component und CSS in einer Datei.</li>
+        <li>Tooling erlaubt Nutzung neuester JS & CSS Features, auch in älteren Browsern.</li>
+        <li>CommonJS Module für einfache <i>imports</i> und <i>exports</i> von Modulen.</li>
+        <li>Ab Projekten mittlerer Größe unverzichtbar.</li>
+      </ul>
+    </section>
+    <section>
+      <h1>Beispiel</h1>
+
+      <pre><code>&lt;template&gt;
+  &lt;div id=&quot;app&quot;&gt;
+    {{ message }}
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  data() {
+    return {
+      message: 'Hello Vue!'
+    }
+  }
+}
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+.app {
+  color: red;
+}
+&lt;/style&gt;</code></pre>
+    </section>
+    <section>
+      <h1>Vue CLI</h1>
+
+      <ul>
+        <li>Generiert Boilerplate für neues Projekt mit Single File Components.</li>
+        <li>Weitere Features können dynamisch ausgewählt werden.</li>
+      </ul>
+
+      <h4 style="margin-top: 32px">Installation</h4>
+
+      <pre><code class="bash">$ yarn global add @vue/cli</code></pre>
+
+      <h4 style="margin-top: 32px">Neues Projekt</h4>
+
+      <pre><code class="bash">$ vue create project-name</code></pre>
+    </section>
+    <section>
+      <h1>Vue CLI</h1>
+
+      <img src="assets/cli.png" class="borderless" style="width: 50%">
+    </section>
+    <section>
+      <h1>Let's code</h1>
+
+      Notizblock App mit bestehendem Backend
+
+      <h5 style="margin-top: 32px; margin-bottom: -8px">Ziel:</h5>
+
+      <img src="assets/screenshot.png" class="borderless" style="width: 50%">
+    </section>
+    <section>
+      <h1>Let's Code</h1>
+
+      Projekt klonen:
+      <a href="https://github.com/rubengees/vue-workshop">https://github.com/rubengees/vue-workshop</a><br><br>
+
+      Backend starten:
+      <pre><code class="bash">$ cd backend
+$ ./gradlew bootRun -Dserver.port=8000</code></pre>
+
+      Frontend starten:
+      <pre><code class="bash">$ cd frontend
+$ yarn serve</code></pre>
+    </section>
+    <section>
+      <h1>Backend API</h1>
+
+      <table>
+        <tr>
+          <th>Methode</th>
+          <th>Endpoint</th>
+          <th>Beschreibung</th>
+        </tr>
+        <tr>
+          <td>POST</td>
+          <td>/api/notes</td>
+          <td>Legt eine neue Notiz an.</td>
+        </tr>
+        <tr>
+          <td>GET</td>
+          <td>/api/notes</td>
+          <td>Gibt alle Notizen zurück.</td>
+        </tr>
+        <tr>
+          <td>GET</td>
+          <td>/api/notes/{id}</td>
+          <td>Gibt eine spezifische Notiz zurück.</td>
+        </tr>
+      </table>
+    </section>
+    <section>
+      <h1>Backend API</h1>
+
+      <table>
+        <tr>
+          <th>Methode</th>
+          <th>Endpoint</th>
+          <th>Beschreibung</th>
+        </tr>
+        <tr>
+          <td>PUT</td>
+          <td>/api/notes/{id}</td>
+          <td>Aktualisiert eine spezifische Notiz.</td>
+        </tr>
+        <tr>
+          <td>DELETE</td>
+          <td>/api/notes/{id}</td>
+          <td>Löscht eine spezifische Notiz.</td>
+        </tr>
+      </table>
     </section>
   </div>
 </div>
