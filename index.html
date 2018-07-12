@@ -1,4 +1,4 @@
- <!DOCTYPE html> <html> <head> <title>Vue.js Workshop</title> <link rel="shortcut icon" href="favicon.ico"><link href="main.css" rel="stylesheet"></head> <body> <div class=reveal> <div class=slides> <section> <h1>Vue.js Workshop</h1> <img src=img/vue-logo.svg class=borderless style=width:25%> <br> <small>Ruben Gees (Smartsquare GmbH)</small> </section> <section> <h1>Übersicht</h1> <ul> <li>Clientseitiges Javascript Framework zur Erstellung von Single-Page-Webanwendungen</li> <li>Entwickler: <a href=https://github.com/open-source/stories/yyx990803>Evan You</a> und Community auf <a href=https://github.com/vuejs/vue>Github</a></li> </ul> <img src=img/evan-you.png class=borderless style=width:25%> </section> <section> <h1>Warum SPA?</h1> <ul> <li>Single-Page-Anwendungen sind schnell und erfordern kein erneutes Laden der Seite.</li> <li>Schneller Entwicklungs-Start: Es wird kein Server benötigt, da alle Seiten statisch sind.</li> <li>Bessere Trennung zwischen Frontend und Backend. <ul> <li>Frontend und Backend können separat voneinander deployed werden.</li> <li>Schnittstelle vom Backend auch für andere Anwendungen nutzbar (bspw. Smartphone Apps).</li> </ul> </li> </ul> </section> <section> <h1>Warum Vue?</h1> <ul> <li>Progressiv: Vue kann nach und nach adaptiert werden.</li> <li>Einfach zu erlernen: Nur Vorwissen in JS und HTML nötig.</li> <li>Mächtig: Das MVVM-Muster mit reaktivem Databinding erlaubt einfache Programmierung komplexer Abläufe.</li> <li>Gibt keine Struktur der Anwendung vor.</li> </ul> </section> <section> <h1>Setup</h1> <pre><code class=html>&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
+ <!DOCTYPE html> <html> <head> <title>Vue.js Workshop</title> <link rel="shortcut icon" href="favicon.ico"><link href="main.css" rel="stylesheet"></head> <body> <div class=reveal> <div class=slides> <section> <h1>Vue.js Workshop</h1> <img src=img/vue-logo.svg class=borderless style=width:25%> <br> <small>Ruben Gees (Smartsquare GmbH)</small> </section> <section> <h1>Übersicht</h1> <ul> <li>Clientseitiges Javascript Framework zur Erstellung von Single-Page-Webanwendungen</li> <li>Entwickler: <a href=https://github.com/open-source/stories/yyx990803>Evan You</a> und Community auf <a href=https://github.com/vuejs/vue>Github</a></li> </ul> <img src=img/evan-you.png class=borderless style=width:25%> </section> <section> <h1>Warum SPA?</h1> <ul> <li>Single-Page-Anwendungen sind schnell und erfordern kein erneutes Laden der Seite.</li> <li>Schneller Entwicklungs-Start: Es wird kein Server benötigt, da alle Seiten statisch sind.</li> <li>Bessere Trennung zwischen Frontend und Backend. <ul> <li>Frontend und Backend können separat voneinander deployed werden.</li> <li>Schnittstelle vom Backend auch für andere Anwendungen nutzbar (bspw. Smartphone Apps).</li> </ul> </li> </ul> </section> <section> <h1>Warum Vue?</h1> <ul> <li>Progressiv: Vue kann nach und nach adaptiert werden.</li> <li>Einfach zu erlernen: Nur Vorwissen in JS und HTML nötig.</li> <li>Mächtig: Das MVVM-Muster mit reaktivem Databinding erlaubt einfache Programmierung komplexer Abläufe.</li> <li>Gibt keine Struktur der Anwendung vor.</li> </ul> </section> <section> <h1>Vue vs. React</h1> <ul> <li>Identische Performanz, beide verwenden Virtual DOM.</li> <li>Manuelle Optimierung entfällt in Vue, da Änderungen automatisch erkannt werden.</li> <li>Templates vs JSX.</li> <li>Höhere Lernkurve bei React.</li> </ul> </section> <section> <h2>Vue vs Angular (2+)</h2> <ul> <li>Identische Performanz.</li> <li>JavaScript vs TypeScript.</li> <li>Angular selbst nach allen Optimierungen noch mehr als doppelt so groß.</li> <li>Angular weniger Flexibel, gibt dafür aber mehr vor.</li> <li>Höhere Lernkurve bei Angular.</li> </ul> </section> <section> <h1>Setup</h1> <pre><code class=html>&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
 
 &lt;script src=&quot;https://unpkg.com/vue&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
@@ -6,7 +6,7 @@ var app = new Vue({
   el: '#app'
 })
 &lt;/script&gt;
-</code></pre> <h5>Oder</h5> <pre><code class=bash>vue create my-project</code></pre> <small style=font-size:.4em>(Später mehr)</small> </section> <section> <h1 style=margin-bottom:-.8em>Databinding <br><span style=font-size:.2em;vertical-align:top>(One-Way)</span></h1> <pre><code class=html>&lt;div id=&quot;app&quot;&gt;
+</code></pre> <h5>Oder</h5> <pre><code class=bash>$ vue create my-project</code></pre> <small style=font-size:.4em>(Später mehr)</small> </section> <section> <h1 style=margin-bottom:-.8em>Databinding <br><span style=font-size:.2em;vertical-align:top>(One-Way)</span></h1> <pre><code class=html>&lt;div id=&quot;app&quot;&gt;
   <mark>{{ message }}</mark>
 &lt;/div&gt;</code></pre> <pre><code class=js>var app = new Vue({
   el: '#app',
@@ -64,4 +64,94 @@ var app = new Vue({
       { text: 'Deploy Code' }
     ]
   }
-})</code></pre> </section> <section> <h1>Components</h1> Angelegte Components können direkt als HTML tags verwendet werden.<br><br> Mittels <i>props</i> können Daten übergeben werden (auch reaktiv!) </section> <section> <h1>Beispiel</h1> <div id=app-2 style=background:#d3d3d3> <ol> <todo-item v-for="(todo, i) in todos" :todo=todo :key=i> </todo-item> </ol> </div> </section> </div> </div> <script type="text/javascript" src="main.js"></script></body> <script></script> </html>
+})</code></pre> </section> <section> <h1>Components</h1> Angelegte Components können direkt als HTML tags verwendet werden.<br><br> Mittels <i>props</i> können Daten übergeben werden (auch reaktiv!) </section> <section> <h1>Beispiel</h1> <div id=app-2 style=background:#d3d3d3> <ol> <todo-item v-for="(todo, i) in todos" :todo=todo :key=i> </todo-item> </ol> </div> </section> <section> <h1>Die Vue Instanz</h1> <pre><code>var app = new Vue({
+  el: '#app',
+  data: {
+    someData: 1
+  },
+  <mark>computed: {
+    doubleData: function () {
+      return someData * 2;
+    }
+  }</mark>
+  watch: {
+    question: function (newSomething, oldSomething) {}
+  },
+  created: function () {},
+  methods: {
+    someMethod() {}
+  }
+})</code></pre> Zur Umwandlung von Daten. Die Ergebnisse werden gecached und ändern sich, wenn sich einer der Abhängigkeiten ändert. </section> <section> <h1>Die Vue Instanz</h1> <pre><code>var app = new Vue({
+  el: '#app',
+  data: {
+    someData: 1
+  },
+  computed: {
+    doubleData: function () {
+      return someData * 2;
+    }
+  },
+  <mark>watch: {
+    someData: function (newData, oldData) {}
+  }</mark>,
+  created: function () {},
+  methods: {
+    someMethod() {}
+  }
+})</code></pre> Zum Beobachten und manuellen Bearbeiten von Daten. Der Name entspricht dem Namen der Daten. </section> <section> <h1>Die Vue Instanz</h1> <pre><code>var app = new Vue({
+  el: '#app',
+  data: {
+    someData: 1
+  },
+  computed: {
+    doubleData: function () {
+      return someData * 2;
+    }
+  },
+  watch: {
+    someData: function (newData, oldData) {}
+  },
+  <mark>created: function () {}</mark>,
+  methods: {
+    someMethod() {}
+  }
+})</code></pre> Lebenszyklus-Callback, welcher an bestimmter Stelle aufgerufen wird (alle Callbacks <a href=https://vuejs.org/v2/guide/instance.html#Lifecycle-Diagram>hier</a>). </section> <section> <h1>Die Vue Instanz</h1> <pre><code>var app = new Vue({
+  el: '#app',
+  data: {
+    someData: 1
+  },
+  computed: {
+    doubleData: function () {
+      return someData * 2;
+    }
+  },
+  watch: {
+    someData: function (newData, oldData) {}
+  },
+  created: function () {},
+  <mark>methods: {
+    someMethod() {}
+  }</mark>
+})</code></pre> Frei definierbare Methoden die auch aus dem Template heraus aufgerufen werden können. </section> <section> <h2>Single file components</h2> <ul> <li>Template, Component und CSS in einer Datei.</li> <li>Tooling erlaubt Nutzung neuester JS & CSS Features, auch in älteren Browsern.</li> <li>CommonJS Module für einfache <i>imports</i> und <i>exports</i> von Modulen.</li> <li>Ab Projekten mittlerer Größe unverzichtbar.</li> </ul> </section> <section> <h1>Beispiel</h1> <pre><code>&lt;template&gt;
+  &lt;div id=&quot;app&quot;&gt;
+    {{ message }}
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  data() {
+    return {
+      message: 'Hello Vue!'
+    }
+  }
+}
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+.app {
+  color: red;
+}
+&lt;/style&gt;</code></pre> </section> <section> <h1>Vue CLI</h1> <ul> <li>Generiert Boilerplate für neues Projekt mit Single File Components.</li> <li>Weitere Features können dynamisch ausgewählt werden.</li> </ul> <h4 style=margin-top:32px>Installation</h4> <pre><code class=bash>$ yarn global add @vue/cli</code></pre> <h4 style=margin-top:32px>Neues Projekt</h4> <pre><code class=bash>$ vue create project-name</code></pre> </section> <section> <h1>Vue CLI</h1> <img src=img/cli.png class=borderless style=width:50%> </section> <section> <h1>Let's code</h1> Notizblock App mit bestehendem Backend <h5 style=margin-top:32px;margin-bottom:-8px>Ziel:</h5> <img src=img/screenshot.png class=borderless style=width:50%> </section> <section> <h1>Let's Code</h1> Projekt klonen: <a href=https://github.com/rubengees/vue-workshop>https://github.com/rubengees/vue-workshop</a><br><br> Backend starten: <pre><code class=bash>$ cd backend
+$ ./gradlew bootRun -Dserver.port=8000</code></pre> Frontend starten: <pre><code class=bash>$ cd frontend
+$ yarn serve</code></pre> </section> <section> <h1>Backend API</h1> <table> <tr> <th>Methode</th> <th>Endpoint</th> <th>Beschreibung</th> </tr> <tr> <td>POST</td> <td>/api/notes</td> <td>Legt eine neue Notiz an.</td> </tr> <tr> <td>GET</td> <td>/api/notes</td> <td>Gibt alle Notizen zurück.</td> </tr> <tr> <td>GET</td> <td>/api/notes/{id}</td> <td>Gibt eine spezifische Notiz zurück.</td> </tr> </table> </section> <section> <h1>Backend API</h1> <table> <tr> <th>Methode</th> <th>Endpoint</th> <th>Beschreibung</th> </tr> <tr> <td>PUT</td> <td>/api/notes/{id}</td> <td>Aktualisiert eine spezifische Notiz.</td> </tr> <tr> <td>DELETE</td> <td>/api/notes/{id}</td> <td>Löscht eine spezifische Notiz.</td> </tr> </table> </section> </div> </div> <script type="text/javascript" src="main.js"></script></body> <script></script> </html>
