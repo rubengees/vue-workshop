@@ -21,11 +21,20 @@ The following APIs are availables:
 
 | Method | endpoint        | description                              |
 | ------ | --------------- | ---------------------------------------- |
-| GET    | /api/notes      | Returns all available notes.             |
+| GET    | /api/notes      | Returns all available notes as an array. |
 | GET    | /api/notes/{id} | Returns a specific note based on the id. |
 | POST   | /api/notes      | Creates a new note.                      |
 | PUT    | /api/notes/{id} | Updates a specific note based on the id. |
 | DELETE | /api/notes/{id} | Deletes a specific note based on the id. |
+
+A note is structured like this:
+
+```json
+{
+  "content": "the content",
+  "isDone": true
+}
+```
 
 You can start the server with `./gradlew bootRun -Dserver.port=8000`.<br>
 Of course, you can choose any port you like, apart from `8080`, which will be used by the frontend.
