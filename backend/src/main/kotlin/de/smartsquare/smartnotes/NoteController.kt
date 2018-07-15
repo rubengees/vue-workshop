@@ -54,7 +54,7 @@ class NoteController(private val repository: NoteRepository) {
                 existing.copy(content = new.content, isDone = new.isDone)
             }
             .map { repository.save(it) }
-            .map { ResponseEntity.ok().build<Any>() }
+            .map { ResponseEntity.noContent().build<Any>() }
             .defaultIfEmpty(ResponseEntity.notFound().build<Any>())
     }
 
@@ -62,7 +62,7 @@ class NoteController(private val repository: NoteRepository) {
     fun delete(@PathVariable noteId: Long): Mono<ResponseEntity<Any>> {
         return Mono.justOrEmpty(repository.findById(noteId).orElse(null))
             .map { repository.delete(it) }
-            .map { ResponseEntity.ok().build<Any>() }
+            .map { ResponseEntity.noContent().build<Any>() }
             .defaultIfEmpty(ResponseEntity.notFound().build<Any>())
     }
 }

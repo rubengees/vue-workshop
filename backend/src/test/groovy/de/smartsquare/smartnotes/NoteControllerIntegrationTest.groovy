@@ -103,7 +103,7 @@ class NoteControllerIntegrationTest extends FlywaySpecification {
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(fromObject(form))
                 .exchange()
-                .expectStatus().isOk()
+                .expectStatus().isNoContent()
 
         def note = noteRepository.findById(2l).get()
         note.content == "testContent"
@@ -142,7 +142,7 @@ class NoteControllerIntegrationTest extends FlywaySpecification {
         webTestClient.delete()
                 .uri("/api/notes/2")
                 .exchange()
-                .expectStatus().isOk()
+                .expectStatus().isNoContent()
 
         !noteRepository.findById(2l).isPresent()
     }
