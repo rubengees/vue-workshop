@@ -17,7 +17,7 @@ The frontend and backend folders contain a simple note list project to implement
 
 The _backend_ directory contains a ready to use REST-API implementation for working with notes.
 
-The following APIs are availables:
+The following APIs are available:
 
 | Method | endpoint        | description                              |
 | ------ | --------------- | ---------------------------------------- |
@@ -41,10 +41,11 @@ Of course, you can choose any port you like, apart from `8080`, which will be us
 
 ### Frontend
 
-The _frontend_ directory contains a vue skeletton with some predefined code, which should help getting start.<br>
+The _frontend_ directory contains a vue skeletton with some predefined code, which should help getting started.<br>
 You will mainly work in the `App.vue` file. See the presentation and the comments in that file.
 
-The server can be started with `yarn start` and is then accessible on http://localhost:8080.<br>
+After installing the dependencies with running `yarn`, the server can be started with `yarn start`
+and is then accessible on http://localhost:8080.<br>
 It also runs `lint` on every code change, so be sure to have a look at that window once in a while.
 
 The _frontend-solution_ directory contains a possible solution to compare yours to.

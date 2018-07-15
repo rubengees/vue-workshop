@@ -31,6 +31,7 @@
 </template>
 
 <script>
+// TODO: Remove to enable lint.
 /* eslint-disable */
 
 import axios from "axios";
