@@ -21,7 +21,7 @@ var app = new Vue({
   data: {
     <mark>message: 'Hello Vue!'</mark>
   }
-})</code></pre> Ändert sich die <i>message</i> im Input, ändert sie sich im Datenmodell (und <u>umgekehrt</u>). </section> <section> <h1>Beispiel</h1> <div id=app-1 style=background:#d3d3d3> <span>{{ message }}</span><br> <input v-model=message> </div> </section> <section> <h1>Conditionals</h1> <pre><code class=html>&lt;div id=&quot;app-3&quot;&gt;
+})</code></pre> Ändert sich die <i>message</i> im Input, ändert sie sich im Datenmodell (und <u>umgekehrt</u>). </section> <section> <h1>Beispiel</h1> <div id=app-1 style=background:#d3d3d3> <span>{{ message }}</span><br> <input v-model=message> </div> </section> <section> <h1>Conditionals</h1> <pre><code class=html>&lt;div id=&quot;app&quot;&gt;
   &lt;span <mark>v-if=&quot;framework === 'vue'&quot;</mark>&gt;Cool!&lt;/span&gt;
   &lt;span <mark>v-else</mark>&gt;Lame :/&lt;/span&gt;
 &lt;/div&gt;</code></pre> <pre><code class=js>var app = new Vue({
