@@ -10,7 +10,7 @@
   "private": true,
   "dependencies": {
     "highlight.js": "^10.4.1",
-    "reveal.js": "^3.6.0",
+    "reveal.js": "^4.3.0",
     "vue": "^2.5.16"
   },
   "devDependencies": {
